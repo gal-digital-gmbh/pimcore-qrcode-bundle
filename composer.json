@@ -27,7 +27,7 @@
   },
   "autoload": {
     "psr-4": {
-      "GalDigital\\QrCodeBundle\\": "src"
+      "GalDigital\\QrCodeBundle\\": "src/"
     }
   },
   "minimum-stability": "dev",
