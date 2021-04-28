@@ -1,8 +1,8 @@
 <?php
 
-namespace GalDigital\QrCodeBundle;
+namespace GalDigitalGmbh\QrCodeBundle;
 
-use GalDigital\QrCodeBundle\DependencyInjection\QrCodeExtension;
+use GalDigitalGmbh\QrCodeBundle\DependencyInjection\QrCodeExtension;
 use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
 
 class QrCodeBundle extends AbstractPimcoreBundle

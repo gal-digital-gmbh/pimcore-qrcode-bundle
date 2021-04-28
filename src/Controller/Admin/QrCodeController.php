@@ -1,9 +1,9 @@
 <?php
 
-namespace GalDigital\QrCodeBundle\Controller\Admin;
+namespace GalDigitalGmbh\QrCodeBundle\Controller\Admin;
 
 use Endroid\QrCode\QrCode as GeneratedQrCode;
-use GalDigital\QrCodeBundle\Model\QrCode;
+use GalDigitalGmbh\QrCodeBundle\Model\QrCode;
 use Pimcore\Bundle\AdminBundle\Controller\AdminController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;

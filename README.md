@@ -16,7 +16,7 @@ Add the bundle to your `config/bundles.php` configuration
 <?php
 
 return [
-  GalDigital\QrCodeBundle\QrCodeBundle::class => ['all' => true],
+  GalDigitalGmbh\QrCodeBundle\QrCodeBundle::class => ['all' => true],
 ];
 ```
 

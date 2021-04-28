@@ -1,6 +1,6 @@
 <?php
 
-namespace GalDigital\QrCodeBundle\Migrations;
+namespace GalDigitalGmbh\QrCodeBundle\Migrations;
 
 use Doctrine\DBAL\Schema\Schema;
 use Doctrine\Migrations\AbstractMigration;

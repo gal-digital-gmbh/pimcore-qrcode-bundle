@@ -1,6 +1,6 @@
 {
   "name": "gal-digital-gmbh/pimcore-qrcode-bundle",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "type": "pimcore-bundle",
   "description": "Pimcore QR-Code bundle",
   "keywords": [
@@ -27,7 +27,7 @@
   },
   "autoload": {
     "psr-4": {
-      "GalDigital\\QrCodeBundle\\": "src/"
+      "GalDigitalGmbh\\QrCodeBundle\\": "src/"
     }
   },
   "minimum-stability": "dev",
@@ -38,7 +38,7 @@
     },
     "pimcore": {
       "bundles": [
-        "GalDigital\\QrCodeBundle\\QrCodeBundle"
+        "GalDigitalGmbh\\QrCodeBundle\\QrCodeBundle"
       ]
     }
   }

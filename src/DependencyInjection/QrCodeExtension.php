@@ -1,6 +1,6 @@
 <?php
 
-namespace GalDigital\QrCodeBundle\DependencyInjection;
+namespace GalDigitalGmbh\QrCodeBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;

@@ -1,29 +1,29 @@
 get:
   path: /item
-  controller: GalDigital\QrCodeBundle\Controller\Admin\QrCodeController::getItem
+  controller: GalDigitalGmbh\QrCodeBundle\Controller\Admin\QrCodeController::getItem
   methods: GET
 
 add:
   path: /item
-  controller: GalDigital\QrCodeBundle\Controller\Admin\QrCodeController::addItem
+  controller: GalDigitalGmbh\QrCodeBundle\Controller\Admin\QrCodeController::addItem
   methods: POST
 
 update:
   path: /item
-  controller: GalDigital\QrCodeBundle\Controller\Admin\QrCodeController::updateItem
+  controller: GalDigitalGmbh\QrCodeBundle\Controller\Admin\QrCodeController::updateItem
   methods: PUT
 
 delete:
   path: /item
-  controller: GalDigital\QrCodeBundle\Controller\Admin\QrCodeController::deleteItem
+  controller: GalDigitalGmbh\QrCodeBundle\Controller\Admin\QrCodeController::deleteItem
   methods: DELETE
 
 list:
   path: /list
-  controller: GalDigital\QrCodeBundle\Controller\Admin\QrCodeController::listItems
+  controller: GalDigitalGmbh\QrCodeBundle\Controller\Admin\QrCodeController::listItems
   methods: [GET, POST]
 
 code:
   path: /code
-  controller: GalDigital\QrCodeBundle\Controller\Admin\QrCodeController::code
+  controller: GalDigitalGmbh\QrCodeBundle\Controller\Admin\QrCodeController::code
   methods: GET

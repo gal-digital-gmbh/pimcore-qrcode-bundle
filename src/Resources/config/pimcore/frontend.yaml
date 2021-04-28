@@ -1,6 +1,6 @@
 code:
   path: /qr/{name}
-  controller: GalDigital\QrCodeBundle\Controller\QrCodeController::code
+  controller: GalDigitalGmbh\QrCodeBundle\Controller\QrCodeController::code
   methods: GET
   requirements:
     name: '[a-zA-Z0-9_\-]+'
