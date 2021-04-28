@@ -1,0 +1,22 @@
+extends: airbnb-base
+env:
+  browser: true
+globals:
+  Class: true
+  Ext: true
+  layoutToolbar: true
+  pimcore: true
+  Routing: true
+  t: true
+rules:
+  comma-dangle: off
+  new-cap: off
+  no-new: off
+  no-param-reassign: off
+  no-var: off
+  object-shorthand: off
+  prefer-arrow-callback: off
+  prefer-destructuring: off
+  prefer-object-spread: off
+  prefer-template: off
+  vars-on-top: off

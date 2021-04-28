@@ -1,0 +1,44 @@
+{
+  "name": "gal-digital-gmbh/pimcore-qrcode-bundle",
+  "type": "pimcore-bundle",
+  "description": "Pimcore QR-Code bundle",
+  "keywords": [
+    "pimcore",
+    "qrcode",
+    "bundle"
+  ],
+  "license": "GPL-3.0-or-later",
+  "authors": [
+    {
+      "name": "Christian Flack",
+      "email": "christian.flack@gal-digital.de",
+      "homepage": "https://www.gal-digital.de",
+      "role": "Developer"
+    }
+  ],
+  "require": {
+    "pimcore/pimcore": "10.0.0-BETA3 as 10.0-dev",
+    "endroid/qr-code": "^3.9"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^2.18.6",
+    "phpstan/phpstan": "^0.12.85"
+  },
+  "autoload": {
+    "psr-4": {
+      "GalDigital\\QrCodeBundle\\": "src"
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "extra": {
+    "branch-alias": {
+      "dev-master": "1.0-dev"
+    },
+    "pimcore": {
+      "bundles": [
+        "GalDigital\\QrCodeBundle\\QrCodeBundle"
+      ]
+    }
+  }
+}

@@ -1,0 +1,12 @@
+galdigital_qrcode_admin:
+  resource: admin.yaml
+  name_prefix: galdigital_qrcode_admin_
+  prefix: /admin/gd/qrcode
+  options:
+    expose: true
+
+galdigital_qrcode_frontend:
+  resource: frontend.yaml
+  name_prefix: galdigital_qrcode_frontend_
+  options:
+    expose: true

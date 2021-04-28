@@ -1,0 +1,10 @@
+services:
+  _defaults:
+    autowire: true
+    autoconfigure: true
+    public: false
+
+  GalDigital\QrCodeBundle\Controller\:
+    resource: '../../Controller'
+    tags: [controller.service_arguments]
+    public: true
