@@ -10,18 +10,8 @@ Require the bundle
 composer require gal-digital-gmbh/pimcore-qrcode-bundle
 ```
 
-Add the bundle to your `config/bundles.php` configuration
-
-```php
-<?php
-
-return [
-  GalDigitalGmbh\QrCodeBundle\QrCodeBundle::class => ['all' => true],
-];
-```
-
-Install project assets with arguments depending on your setup
+Enable the bundle
 
 ```bash
-php bin/console assets:install --relative --symlink public
+php bin/console pimcore:bundle:enable QrCodeBundle
 ```
