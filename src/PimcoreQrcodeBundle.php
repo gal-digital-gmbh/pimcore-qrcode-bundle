@@ -24,9 +24,9 @@ class PimcoreQrcodeBundle extends AbstractPimcoreBundle
     public function getJsPaths()
     {
         return [
-            '/bundles/qrcode/admin/js/startup.js',
-            '/bundles/qrcode/admin/js/panel.js',
-            '/bundles/qrcode/admin/js/item.js',
+            '/bundles/pimcoreqrcode/admin/js/startup.js',
+            '/bundles/pimcoreqrcode/admin/js/panel.js',
+            '/bundles/pimcoreqrcode/admin/js/item.js',
         ];
     }
 
