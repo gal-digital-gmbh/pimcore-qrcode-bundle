@@ -1,6 +1,6 @@
 <?php
 
-namespace GalDigitalGmbh\QrCodeBundle\Exception;
+namespace GalDigitalGmbh\PimcoreQrcodeBundle\Exception;
 
 use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 

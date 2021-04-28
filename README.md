@@ -13,5 +13,5 @@ composer require gal-digital-gmbh/pimcore-qrcode-bundle
 Enable the bundle
 
 ```bash
-php bin/console pimcore:bundle:enable QrCodeBundle
+php bin/console pimcore:bundle:enable PimcoreQrcodeBundle
 ```

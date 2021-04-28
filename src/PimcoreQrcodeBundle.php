@@ -1,12 +1,12 @@
 <?php
 
-namespace GalDigitalGmbh\QrCodeBundle;
+namespace GalDigitalGmbh\PimcoreQrcodeBundle;
 
 use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
 use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;
 use Pimcore\Extension\Bundle\Traits\StateHelperTrait;
 
-class QrCodeBundle extends AbstractPimcoreBundle
+class PimcoreQrcodeBundle extends AbstractPimcoreBundle
 {
     use StateHelperTrait;
     use PackageVersionTrait;

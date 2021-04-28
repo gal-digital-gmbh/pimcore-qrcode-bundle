@@ -4,7 +4,7 @@ services:
     autoconfigure: true
     public: false
 
-  GalDigitalGmbh\QrCodeBundle\Controller\:
+  GalDigitalGmbh\PimcoreQrcodeBundle\Controller\:
     resource: '../../Controller'
     tags: [controller.service_arguments]
     public: true

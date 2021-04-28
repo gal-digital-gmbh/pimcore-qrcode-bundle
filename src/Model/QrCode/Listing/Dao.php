@@ -1,9 +1,9 @@
 <?php
 
-namespace GalDigitalGmbh\QrCodeBundle\Model\QrCode\Listing;
+namespace GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode\Listing;
 
-use GalDigitalGmbh\QrCodeBundle\Model\QrCode;
-use GalDigitalGmbh\QrCodeBundle\Model\QrCode\Listing;
+use GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode;
+use GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode\Listing;
 use Pimcore\Model\Dao\PhpArrayTable;
 
 /**

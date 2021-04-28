@@ -1,9 +1,9 @@
 <?php
 
-namespace GalDigitalGmbh\QrCodeBundle\Model\QrCode;
+namespace GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode;
 
 use Exception;
-use GalDigitalGmbh\QrCodeBundle\Model\QrCode;
+use GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode;
 use Pimcore\Model\Dao\PhpArrayTable;
 
 /**

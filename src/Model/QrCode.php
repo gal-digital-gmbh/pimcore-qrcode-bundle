@@ -1,9 +1,9 @@
 <?php
 
-namespace GalDigitalGmbh\QrCodeBundle\Model;
+namespace GalDigitalGmbh\PimcoreQrcodeBundle\Model;
 
 use Exception;
-use GalDigitalGmbh\QrCodeBundle\Model\QrCode\Dao;
+use GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode\Dao;
 use Pimcore\Model\AbstractModel;
 
 /**

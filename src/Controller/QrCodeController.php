@@ -1,9 +1,9 @@
 <?php
 
-namespace GalDigitalGmbh\QrCodeBundle\Controller;
+namespace GalDigitalGmbh\PimcoreQrcodeBundle\Controller;
 
-use GalDigitalGmbh\QrCodeBundle\Exception\QrCodeNotFoundException;
-use GalDigitalGmbh\QrCodeBundle\Model\QrCode;
+use GalDigitalGmbh\PimcoreQrcodeBundle\Exception\QrCodeNotFoundException;
+use GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode;
 use Pimcore\Controller\FrontendController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
