@@ -8,7 +8,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Adds qr_codes admin permissions
  */
-final class Version20210412112812 extends AbstractMigration
+final class Version20210423161334 extends AbstractMigration
 {
     public function up(Schema $schema): void
     {
