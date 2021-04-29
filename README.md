@@ -2,6 +2,10 @@
 
 Adds a backend configuration view for QR-Codes.
 
+## Requirements
+
+Pimcore >= 10.0
+
 ## Installation
 
 Require the bundle
