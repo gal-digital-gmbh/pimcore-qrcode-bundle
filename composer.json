@@ -1,6 +1,6 @@
 {
   "name": "gal-digital-gmbh/pimcore-qrcode-bundle",
-  "version": "0.1.2",
+  "version": "1.0.0",
   "type": "pimcore-bundle",
   "description": "Pimcore QR-Code bundle",
   "keywords": [
@@ -18,7 +18,7 @@
     }
   ],
   "require": {
-    "pimcore/pimcore": "10.0.0-BETA3 as 10.0-dev",
+    "pimcore/pimcore": "^10.0.0",
     "endroid/qr-code": "^3.9"
   },
   "require-dev": {
@@ -30,8 +30,6 @@
       "GalDigitalGmbh\\PimcoreQrcodeBundle\\": "src"
     }
   },
-  "minimum-stability": "dev",
-  "prefer-stable": true,
   "extra": {
     "branch-alias": {
       "dev-master": "1.0-dev"
@@ -41,5 +39,7 @@
         "GalDigitalGmbh\\PimcoreQrcodeBundle\\PimcoreQrcodeBundle"
       ]
     }
-  }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
 }
