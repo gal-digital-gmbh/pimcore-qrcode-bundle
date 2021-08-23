@@ -2,7 +2,7 @@
 
 namespace GalDigitalGmbh\PimcoreQrcodeBundle\Controller\Admin;
 
-use Endroid\QrCode\QrCode as GeneratedQrCode;
+use Endroid\QrCode\Builder\Builder;
 use GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode;
 use Pimcore\Bundle\AdminBundle\Controller\AdminController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
@@ -133,13 +133,11 @@ class QrCodeController extends AdminController
 
     private function generateCode(Request $request, string $outputFile): void
     {
-        $code = new GeneratedQrCode();
-
-        $code->setWriterByName('png');
-        $code->setText($this->getCodeUrl($request->get('name', '')));
-        $code->setSize($request->get('download') ? 4000 : 500);
-
-        $code->writeFile($outputFile);
+        Builder::create()
+            ->data($this->getCodeUrl($request->get('name', '')))
+            ->size($request->get('download') ? 4000 : 500)
+            ->build()
+            ->saveToFile($outputFile);
     }
 
     private function getCodeUrl(string $name): string

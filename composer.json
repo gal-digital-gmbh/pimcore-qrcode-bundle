@@ -1,6 +1,6 @@
 {
   "name": "gal-digital-gmbh/pimcore-qrcode-bundle",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "type": "pimcore-bundle",
   "description": "Pimcore QR-Code bundle",
   "keywords": [
@@ -18,12 +18,12 @@
     }
   ],
   "require": {
-    "pimcore/pimcore": "^10.0.0",
-    "endroid/qr-code": "^3.9"
+    "pimcore/pimcore": "^10.1",
+    "endroid/qr-code": "^4"
   },
   "require-dev": {
-    "friendsofphp/php-cs-fixer": "^2.18.6",
-    "phpstan/phpstan": "^0.12.85"
+    "friendsofphp/php-cs-fixer": "^2.18",
+    "phpstan/phpstan": "^0.12"
   },
   "autoload": {
     "psr-4": {
