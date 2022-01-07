@@ -8,6 +8,7 @@ use Pimcore\Model\Exception\NotFoundException;
 
 /**
  * @method Dao getDao()
+ * @method bool isWriteable()
  * @method void delete()
  * @method void save()
  */

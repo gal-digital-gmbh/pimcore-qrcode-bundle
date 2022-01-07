@@ -74,7 +74,8 @@ pimcore.plugin.galdigital.qrcode.panel = Class.create({
           items: [{
             text: t('qr_code.add'),
             iconCls: 'pimcore_icon_add',
-            handler: this.addField.bind(this)
+            handler: this.addField.bind(this),
+            disabled: !pimcore.settings['qrcode-writeable']
           }]
         },
         listeners: {
@@ -90,7 +91,8 @@ pimcore.plugin.galdigital.qrcode.panel = Class.create({
             menu.add(new Ext.menu.Item({
               text: t('qr_code.delete'),
               iconCls: 'pimcore_icon_delete',
-              handler: this.deleteField.bind(this, record)
+              handler: this.deleteField.bind(this, record),
+              disabled: !record.data.writeable
             }));
 
             event.stopEvent();

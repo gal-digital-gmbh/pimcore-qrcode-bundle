@@ -8,3 +8,7 @@ services:
     resource: '../../Controller'
     tags: [controller.service_arguments]
     public: true
+
+  GalDigitalGmbh\PimcoreQrcodeBundle\EventListener\AdminListener:
+    tags:
+      - { name: kernel.event_listener, event: pimcore.admin.indexAction.settings, method: addIndexSettings }

@@ -112,6 +112,7 @@ class QrCodeController extends AdminController
             return [
                 'id'   => $code->getName(),
                 'text' => $code->getName(),
+                'writeable' => $code->isWriteable(),
             ];
         }, $list->getCodes());
 
