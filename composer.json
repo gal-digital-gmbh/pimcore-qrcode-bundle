@@ -1,6 +1,6 @@
 {
   "name": "gal-digital-gmbh/pimcore-qrcode-bundle",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "type": "pimcore-bundle",
   "description": "Pimcore QR-Code bundle",
   "keywords": [
@@ -32,7 +32,7 @@
   },
   "extra": {
     "branch-alias": {
-      "dev-main": "1.1-dev"
+      "dev-main": "1.2-dev"
     },
     "pimcore": {
       "bundles": [
