@@ -2,9 +2,9 @@
 
 namespace GalDigitalGmbh\PimcoreQrcodeBundle\Model;
 
-use Exception;
 use GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode\Dao;
 use Pimcore\Model\AbstractModel;
+use Pimcore\Model\Exception\NotFoundException;
 
 /**
  * @method Dao getDao()
@@ -45,7 +45,7 @@ class QrCode extends AbstractModel
             $code->getDao()->getByName($name);
 
             return $code;
-        } catch (Exception $e) {
+        } catch (NotFoundException $e) {
             return null;
         }
     }

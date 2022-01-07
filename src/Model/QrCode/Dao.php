@@ -4,12 +4,13 @@ namespace GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode;
 
 use Exception;
 use GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode;
-use Pimcore\Model\Dao\PhpArrayTable;
+use Pimcore\Model\Dao\PimcoreLocationAwareConfigDao;
+use Pimcore\Model\Exception\NotFoundException;
 
 /**
  * @property QrCode $model
  */
-class Dao extends PhpArrayTable
+class Dao extends PimcoreLocationAwareConfigDao
 {
     /**
      * @var string[]
@@ -22,34 +23,42 @@ class Dao extends PhpArrayTable
         'modificationDate',
     ];
 
+    /** @var string */
+    private const LEGACY_FILE = 'qrcode.php';
+
+    /** @var string */
+    public const CONFIG_PATH = PIMCORE_CONFIGURATION_DIRECTORY . '/qrcode';
+
     /**
      * @return void
      */
     public function configure()
     {
-        parent::configure();
+        $config = \Pimcore::getContainer()->getParameter('pimcore_qrcode');
 
-        $this->setFile('qrcode');
+        parent::configure([
+            'containerConfig' => $config['codes'] ?? [],
+            'settingsStoreScope' => 'pimcore_qrcode',
+            'storageDirectory' => self::CONFIG_PATH,
+            'legacyConfigFile' => self::LEGACY_FILE,
+            'writeTargetEnvVariableName' => 'PIMCORE_WRITE_TARGET_QRCODES'
+        ]);
     }
 
     /**
-     * @throws Exception
+     * @param string $name
+     *
+     * @return void
      */
-    public function getByName(?string $id = null): void
+    public function getByName(string $name): void
     {
-        if ($id !== null) {
-            $this->model->setName($id);
+        $data = $this->getDataByName($name);
+
+        if ($data) {
+            $this->assignVariablesToModel($data);
+        } else {
+            throw new NotFoundException('QR-Code with name: ' . $name . ' does not exist');
         }
-
-        $name = $this->model->getName();
-        $data = $this->db->getById($name);
-
-        if (!isset($data['id'])) {
-            throw new Exception('QR-Code with id: ' . $name . ' does not exist');
-        }
-
-        $this->assignVariablesToModel($data);
-        $this->model->setName($data['id']);
     }
 
     /**
@@ -71,11 +80,25 @@ class Dao extends PhpArrayTable
             return in_array($property, self::$allowedProperties);
         }, ARRAY_FILTER_USE_KEY);
 
-        $this->db->insertOrUpdate($data, $this->model->getName());
+        $this->saveData($this->model->getName(), $data);
     }
 
     public function delete(): void
     {
-        $this->db->delete($this->model->getName());
+        $this->deleteData($this->model->getName());
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    protected function prepareDataStructureForYaml(string $id, $data)
+    {
+        return [
+            'pimcore_qrcode' => [
+                'codes' => [
+                    $id => $data,
+                ],
+            ],
+        ];
     }
 }

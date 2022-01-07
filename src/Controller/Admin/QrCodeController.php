@@ -113,7 +113,7 @@ class QrCodeController extends AdminController
                 'id'   => $code->getName(),
                 'text' => $code->getName(),
             ];
-        }, $list->load());
+        }, $list->getCodes());
 
         return $this->adminJson([
             'codes' => $codes,
