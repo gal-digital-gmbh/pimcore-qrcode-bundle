@@ -18,7 +18,9 @@ class Dao extends QrCode\Dao
         $qrCodes = [];
 
         foreach ($this->loadIdList() as $id) {
-            $qrCodes[] = QrCode::getByName($id);
+            if ($qrCode = QrCode::getByName($id)) {
+                $qrCodes[] = $qrCode;
+            }
         }
         if ($this->model->getFilter()) {
             $qrCodes = array_filter($qrCodes, $this->model->getFilter());
