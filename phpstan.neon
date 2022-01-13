@@ -1,3 +1,6 @@
 parameters:
-  bootstrapFiles:
-    - .stubs/dynamic-constants.php
+    level: 8
+    paths:
+        - src
+    bootstrapFiles:
+        - .stubs/dynamic-constants.php
