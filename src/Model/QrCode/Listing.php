@@ -17,12 +17,12 @@ class Listing extends JsonListing
     protected $codes = null;
 
     /**
-     * @return QrCode[]|null
+     * @return QrCode[]
      */
-    public function getCodes()
+    public function getCodes(): array
     {
         if ($this->codes === null) {
-            $this->getDao()->loadList();
+            return $this->getDao()->loadList();
         }
 
         return $this->codes;

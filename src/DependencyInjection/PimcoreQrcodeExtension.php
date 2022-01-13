@@ -29,7 +29,7 @@ class PimcoreQrcodeExtension extends ConfigurableExtension implements PrependExt
     /**
      * @param ContainerBuilder $container
      */
-    public function prepend(ContainerBuilder $container)
+    public function prepend(ContainerBuilder $container): void
     {
         if ($container->hasExtension('doctrine_migrations')) {
             $loader = new YamlFileLoader(

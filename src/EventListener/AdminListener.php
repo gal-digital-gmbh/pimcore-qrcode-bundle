@@ -12,7 +12,7 @@ class AdminListener
      *
      * @param IndexActionSettingsEvent $event
      */
-    public function addIndexSettings(IndexActionSettingsEvent $event)
+    public function addIndexSettings(IndexActionSettingsEvent $event): void
     {
         $event->addSetting('qrcode-writeable', (new QrCode())->isWriteable());
     }
