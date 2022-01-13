@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 class PimcoreQrcodeExtension extends ConfigurableExtension implements PrependExtensionInterface
 {
     /**
-     * @param array $mergedConfig
+     * @param array<mixed> $mergedConfig
      * @param ContainerBuilder $container
      *
      * @return void
