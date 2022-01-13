@@ -8,7 +8,6 @@ use Pimcore\Model\Listing\JsonListing;
 
 /**
  * @method Dao getDao()
- * @method QrCode[] load()
  */
 class Listing extends JsonListing
 {
@@ -23,7 +22,7 @@ class Listing extends JsonListing
     public function getCodes()
     {
         if ($this->codes === null) {
-            $this->getDao()->load();
+            $this->getDao()->loadList();
         }
 
         return $this->codes;
@@ -37,5 +36,13 @@ class Listing extends JsonListing
         $this->codes = $codes;
 
         return $this;
+    }
+
+    /**
+     * @return QrCode[]|null
+     */
+    public function load()
+    {
+        return $this->getCodes();
     }
 }

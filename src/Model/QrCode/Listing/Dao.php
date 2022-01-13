@@ -4,53 +4,36 @@ namespace GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode\Listing;
 
 use GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode;
 use GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode\Listing;
-use Pimcore\Model\Dao\PhpArrayTable;
 
 /**
  * @property Listing $model
  */
-class Dao extends PhpArrayTable
+class Dao extends QrCode\Dao
 {
-    /**
-     * @return void
-     */
-    public function configure()
-    {
-        parent::configure();
-
-        $this->setFile('qrcode');
-    }
-
     /**
      * @return QrCode[]
      */
-    public function load(): array
+    public function loadList(): array
     {
-        $properties = [];
+        $qrCodes = [];
 
-        foreach ($this->fetchAll() as $propertyData) {
-            $property = QrCode::getByName($propertyData['id']);
-
-            if ($property) {
-                $properties[] = $property;
-            }
+        foreach ($this->loadIdList() as $id) {
+            $qrCodes[] = QrCode::getByName($id);
+        }
+        if ($this->model->getFilter()) {
+            $qrCodes = array_filter($qrCodes, $this->model->getFilter());
+        }
+        if ($this->model->getOrder()) {
+            usort($qrCodes, $this->model->getOrder());
         }
 
-        $this->model->setCodes($properties);
+        $this->model->setCodes($qrCodes);
 
-        return $properties;
+        return $qrCodes;
     }
 
     public function getTotalCount(): int
     {
-        return count($this->fetchAll());
-    }
-
-    /**
-     * @return mixed[]
-     */
-    private function fetchAll(): array
-    {
-        return $this->db->fetchAll($this->model->getFilter(), $this->model->getOrder());
+        return count($this->loadList());
     }
 }
