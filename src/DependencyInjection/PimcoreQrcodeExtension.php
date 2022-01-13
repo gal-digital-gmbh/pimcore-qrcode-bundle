@@ -37,7 +37,7 @@ class PimcoreQrcodeExtension extends ConfigurableExtension implements PrependExt
                 new FileLocator(__DIR__ . '/../Resources/config')
             );
 
-            $loader->load('doctrine_migrations.yml');
+            $loader->load('doctrine_migrations.yaml');
         }
 
         $configDir = Dao::CONFIG_PATH;
