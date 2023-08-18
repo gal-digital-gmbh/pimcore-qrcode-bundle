@@ -29,12 +29,11 @@ class Dao extends PimcoreLocationAwareConfigDao
     {
         /** @var array<mixed>|null $config */
         $config = \Pimcore::getContainer()?->getParameter('pimcore_qrcode');
-        $storageConfig = $config['config_location']['qrcode'];
 
         parent::configure([
-            'containerConfig' => $config['configurations'] ?? [],
+            'containerConfig' => $config['codes'] ?? [],
             'settingsStoreScope' => 'pimcore_qrcode',
-            'storageConfig' => $storageConfig,
+            'storageConfig' => $config['config_location']['qrcode'] ?? [],
         ]);
     }
 
