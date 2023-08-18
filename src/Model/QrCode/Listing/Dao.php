@@ -7,6 +7,7 @@ use GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode\Listing;
 
 /**
  * @property Listing $model
+ *
  * @internal
  */
 class Dao extends QrCode\Dao

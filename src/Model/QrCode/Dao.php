@@ -9,6 +9,7 @@ use Pimcore\Model\Exception\NotFoundException;
 
 /**
  * @property QrCode $model
+ *
  * @internal
  */
 class Dao extends PimcoreLocationAwareConfigDao
@@ -30,9 +31,6 @@ class Dao extends PimcoreLocationAwareConfigDao
     /** @var string */
     public const CONFIG_PATH = PIMCORE_CONFIGURATION_DIRECTORY . '/qrcode';
 
-    /**
-     * @return void
-     */
     public function configure(): void
     {
         /** @var array<mixed>|null $config */
@@ -43,15 +41,10 @@ class Dao extends PimcoreLocationAwareConfigDao
             'settingsStoreScope' => 'pimcore_qrcode',
             'storageDirectory' => self::CONFIG_PATH,
             'legacyConfigFile' => self::LEGACY_FILE,
-            'writeTargetEnvVariableName' => 'PIMCORE_WRITE_TARGET_QRCODES'
+            'writeTargetEnvVariableName' => 'PIMCORE_WRITE_TARGET_QRCODES',
         ]);
     }
 
-    /**
-     * @param string $name
-     *
-     * @return void
-     */
     public function getByName(string $name): void
     {
         $data = $this->getDataByName($name);
@@ -90,9 +83,6 @@ class Dao extends PimcoreLocationAwareConfigDao
         $this->deleteData($this->model->getName());
     }
 
-    /**
-     * {@inheritdoc}
-     */
     protected function prepareDataStructureForYaml(string $id, mixed $data): mixed
     {
         return [

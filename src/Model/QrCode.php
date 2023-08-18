@@ -14,32 +14,15 @@ use Pimcore\Model\Exception\NotFoundException;
  */
 final class QrCode extends AbstractModel
 {
-    /**
-     * @var string
-     */
     public string $name = '';
 
-    /**
-     * @var string
-     */
     public string $description = '';
 
-    /**
-     * @var string
-     */
     public string $url = '';
 
-    /**
-     * @var int
-     */
     public int $modificationDate = 0;
 
-    /**
-     * @var int
-     */
     public int $creationDate = 0;
-
-
 
     public static function getByName(string $name): ?self
     {

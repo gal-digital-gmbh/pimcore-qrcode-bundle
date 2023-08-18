@@ -14,9 +14,6 @@ final class PimcoreQrcodeExtension extends ConfigurableExtension implements Prep
 {
     /**
      * @param array<mixed> $mergedConfig
-     * @param ContainerBuilder $container
-     *
-     * @return void
      */
     public function loadInternal(array $mergedConfig, ContainerBuilder $container): void
     {
@@ -26,9 +23,6 @@ final class PimcoreQrcodeExtension extends ConfigurableExtension implements Prep
         $loader->load('services.yaml');
     }
 
-    /**
-     * @param ContainerBuilder $container
-     */
     public function prepend(ContainerBuilder $container): void
     {
         if ($container->hasExtension('doctrine_migrations')) {
