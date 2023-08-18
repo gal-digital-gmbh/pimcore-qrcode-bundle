@@ -4,7 +4,7 @@ Adds a backend configuration view for QR-Codes.
 
 ## Requirements
 
-Pimcore >= 10.5
+Pimcore >= 11.0
 
 ## Installation
 

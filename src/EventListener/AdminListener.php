@@ -3,7 +3,7 @@
 namespace GalDigitalGmbh\PimcoreQrcodeBundle\EventListener;
 
 use GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode;
-use Pimcore\Event\Admin\IndexActionSettingsEvent;
+use Pimcore\Bundle\AdminBundle\Event\IndexActionSettingsEvent;
 
 class AdminListener
 {

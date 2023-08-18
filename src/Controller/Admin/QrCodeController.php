@@ -4,23 +4,20 @@ namespace GalDigitalGmbh\PimcoreQrcodeBundle\Controller\Admin;
 
 use Endroid\QrCode\Builder\Builder;
 use GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode;
-use Pimcore\Bundle\AdminBundle\Controller\AdminController;
+use Pimcore\Controller\Traits\JsonHelperTrait;
+use Pimcore\Controller\UserAwareController;
 use Symfony\Component\HttpFoundation\BinaryFileResponse;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-class QrCodeController extends AdminController
+class QrCodeController extends UserAwareController
 {
-    /**
-     * @var UrlGeneratorInterface
-     */
-    private $urlGenerator;
+    use JsonHelperTrait;
 
-    public function __construct(UrlGeneratorInterface $urlGenerator)
+    public function __construct(private UrlGeneratorInterface $urlGenerator)
     {
-        $this->urlGenerator = $urlGenerator;
     }
 
     public function getItem(Request $request): JsonResponse
@@ -30,7 +27,7 @@ class QrCodeController extends AdminController
         $code    = QrCode::getByName($request->get('name'));
         $success = (bool) $code;
 
-        return $this->adminJson([
+        return $this->jsonResponse([
             'success' => $success,
             'code'    => $code,
         ]);
@@ -52,7 +49,7 @@ class QrCodeController extends AdminController
             $success = true;
         }
 
-        return $this->adminJson([
+        return $this->jsonResponse([
             'success' => $success,
             'id'      => $code->getName(),
         ]);
@@ -80,7 +77,7 @@ class QrCodeController extends AdminController
             $success = true;
         }
 
-        return $this->adminJson([
+        return $this->jsonResponse([
             'success' => $success,
         ]);
     }
@@ -97,7 +94,7 @@ class QrCodeController extends AdminController
             $success = true;
         }
 
-        return $this->adminJson([
+        return $this->jsonResponse([
             'success' => $success,
         ]);
     }
@@ -116,7 +113,7 @@ class QrCodeController extends AdminController
             ];
         }, $list->getCodes());
 
-        return $this->adminJson([
+        return $this->jsonResponse([
             'codes' => $codes,
         ]);
     }

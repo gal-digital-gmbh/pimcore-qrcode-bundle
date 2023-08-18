@@ -15,7 +15,7 @@ class Dao extends PimcoreLocationAwareConfigDao
     /**
      * @var string[]
      */
-    private static $allowedProperties = [
+    private static array $allowedProperties = [
         'name',
         'description',
         'url',
@@ -32,7 +32,7 @@ class Dao extends PimcoreLocationAwareConfigDao
     /**
      * @return void
      */
-    public function configure()
+    public function configure(): void
     {
         /** @var array<mixed>|null $config */
         $config = \Pimcore::getContainer()?->getParameter('pimcore_qrcode');
@@ -92,7 +92,7 @@ class Dao extends PimcoreLocationAwareConfigDao
     /**
      * {@inheritdoc}
      */
-    protected function prepareDataStructureForYaml(string $id, $data)
+    protected function prepareDataStructureForYaml(string $id, mixed $data): mixed
     {
         return [
             'pimcore_qrcode' => [

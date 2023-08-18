@@ -18,7 +18,7 @@ class PimcoreQrcodeExtension extends ConfigurableExtension implements PrependExt
      *
      * @return void
      */
-    public function loadInternal(array $mergedConfig, ContainerBuilder $container)
+    public function loadInternal(array $mergedConfig, ContainerBuilder $container): void
     {
         $container->setParameter('pimcore_qrcode', $mergedConfig);
 

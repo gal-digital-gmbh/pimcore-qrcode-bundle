@@ -17,41 +17,44 @@ class QrCode extends AbstractModel
     /**
      * @var string
      */
-    public $name = '';
+    public string $name = '';
 
     /**
      * @var string
      */
-    public $description = '';
+    public string $description = '';
 
     /**
      * @var string
      */
-    public $url = '';
+    public string $url = '';
 
     /**
      * @var int
      */
-    public $modificationDate = 0;
+    public int $modificationDate = 0;
 
     /**
      * @var int
      */
-    public $creationDate = 0;
+    public int $creationDate = 0;
 
-    public static function getByName(string $name): ?self
+    public static function getByName(string $name): ?static
     {
         try {
-            $code = new self();
+            $code = new static();
             $code->getDao()->getByName($name);
 
             return $code;
-        } catch (NotFoundException $e) {
+        } catch (NotFoundException) {
             return null;
         }
     }
 
-    public function setDescription(string $description): self
+    /**
+     * @return $this
+     */
+    public function setDescription(string $description): static
     {
         $this->description = $description;
 
@@ -63,7 +66,10 @@ class QrCode extends AbstractModel
         return $this->description;
     }
 
-    public function setName(string $name): self
+    /**
+     * @return $this
+     */
+    public function setName(string $name): static
     {
         $this->name = $name;
 
@@ -75,7 +81,10 @@ class QrCode extends AbstractModel
         return $this->name;
     }
 
-    public function setUrl(string $url): self
+    /**
+     * @return $this
+     */
+    public function setUrl(string $url): static
     {
         $this->url = $url;
 
@@ -87,7 +96,10 @@ class QrCode extends AbstractModel
         return $this->url;
     }
 
-    public function setModificationDate(int $modificationDate): self
+    /**
+     * @return $this
+     */
+    public function setModificationDate(int $modificationDate): static
     {
         $this->modificationDate = $modificationDate;
 
@@ -99,7 +111,10 @@ class QrCode extends AbstractModel
         return $this->modificationDate;
     }
 
-    public function setCreationDate(int $creationDate): self
+    /**
+     * @return $this
+     */
+    public function setCreationDate(int $creationDate): static
     {
         $this->creationDate = $creationDate;
 

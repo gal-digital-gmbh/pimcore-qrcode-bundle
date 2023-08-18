@@ -4,17 +4,22 @@ namespace GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode;
 
 use GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode;
 use GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode\Listing\Dao;
-use Pimcore\Model\Listing\JsonListing;
+use Pimcore\Model\AbstractModel;
+use Pimcore\Model\Listing\Traits\FilterListingTrait;
+use Pimcore\Model\Listing\Traits\OrderListingTrait;
 
 /**
  * @method Dao getDao()
  */
-class Listing extends JsonListing
+class Listing extends AbstractModel
 {
+    use FilterListingTrait;
+    use OrderListingTrait;
+
     /**
      * @var QrCode[]|null
      */
-    protected $codes = null;
+    protected ?array $codes = null;
 
     /**
      * @return QrCode[]
@@ -39,9 +44,9 @@ class Listing extends JsonListing
     }
 
     /**
-     * @return QrCode[]|null
+     * @return QrCode[]
      */
-    public function load()
+    public function load(): array
     {
         return $this->getCodes();
     }
