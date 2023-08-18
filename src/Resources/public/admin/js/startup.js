@@ -1,32 +1,39 @@
-document.addEventListener(pimcore.events.pimcoreReady, () => {
-  var user = pimcore.globalmanager.get('user');
+pimcore.registerNS("pimcore.plugin.galdigital.qrcode.startup");
 
-  if (!user.isAllowed('qr_codes')) {
-    return;
-  }
+pimcore.plugin.galdigital.qrcode.startup = Class.create({
+  initialize: function () {
+    document.addEventListener(pimcore.events.preMenuBuild, this.preMenuBuild.bind(this));
+  },
+  preMenuBuild: function (e) {
+    var user = pimcore.globalmanager.get('user');
 
-  var marketingMenu = pimcore.globalmanager.get('layout_toolbar').marketingMenu;
-
-  if (!marketingMenu) {
-    return;
-  }
-
-  var button = new Ext.Action({
-    id: 'qr_codes',
-    text: t('qr_code.title'),
-    iconCls: 'pimcore_nav_icon_qrcode',
-    handler: () => {
-      var panel = pimcore.globalmanager.get('qr_codes');
-
-      if (!panel) {
-        panel = new pimcore.plugin.galdigital.qrcode.panel();
-
-        pimcore.globalmanager.add('qr_codes', panel);
-      }
-
-      panel.activate();
+    if (!user.isAllowed('qr_codes')) {
+      return;
     }
-  });
 
-  marketingMenu.add(button);
+    var marketingMenu = e.detail.menu.marketing;
+
+    if (!marketingMenu) {
+      return;
+    }
+
+    marketingMenu.items.push({
+      itemId: 'qr_codes',
+      text: t('qr_code.title'),
+      iconCls: 'pimcore_nav_icon_qrcode',
+      handler: () => {
+        var panel = pimcore.globalmanager.get('qr_codes');
+
+        if (!panel) {
+          panel = new pimcore.plugin.galdigital.qrcode.panel();
+
+          pimcore.globalmanager.add('qr_codes', panel);
+        }
+
+        panel.activate();
+      }
+    });
+  }
 });
+
+const qrcode = new pimcore.plugin.galdigital.qrcode.startup();
