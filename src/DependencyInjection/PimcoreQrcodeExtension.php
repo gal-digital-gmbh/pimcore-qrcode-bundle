@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace GalDigitalGmbh\PimcoreQrcodeBundle\DependencyInjection;
 
@@ -10,7 +10,7 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 
-class PimcoreQrcodeExtension extends ConfigurableExtension implements PrependExtensionInterface
+final class PimcoreQrcodeExtension extends ConfigurableExtension implements PrependExtensionInterface
 {
     /**
      * @param array<mixed> $mergedConfig

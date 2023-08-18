@@ -1,11 +1,11 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace GalDigitalGmbh\PimcoreQrcodeBundle\EventListener;
 
 use GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode;
 use Pimcore\Bundle\AdminBundle\Event\IndexActionSettingsEvent;
 
-class AdminListener
+final class AdminListener
 {
     /**
      * Handles INDEX_ACTION_SETTINGS event and adds custom admin UI settings

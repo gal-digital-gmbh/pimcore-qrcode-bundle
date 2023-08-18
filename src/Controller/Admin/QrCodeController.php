@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace GalDigitalGmbh\PimcoreQrcodeBundle\Controller\Admin;
 
@@ -12,7 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 
-class QrCodeController extends UserAwareController
+final class QrCodeController extends UserAwareController
 {
     use JsonHelperTrait;
 

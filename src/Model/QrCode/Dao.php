@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode;
 
@@ -9,6 +9,7 @@ use Pimcore\Model\Exception\NotFoundException;
 
 /**
  * @property QrCode $model
+ * @internal
  */
 class Dao extends PimcoreLocationAwareConfigDao
 {

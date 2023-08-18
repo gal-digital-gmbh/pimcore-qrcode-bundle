@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode\Listing;
 
@@ -7,6 +7,7 @@ use GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode\Listing;
 
 /**
  * @property Listing $model
+ * @internal
  */
 class Dao extends QrCode\Dao
 {

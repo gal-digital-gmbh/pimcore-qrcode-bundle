@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace GalDigitalGmbh\PimcoreQrcodeBundle\Controller;
 
@@ -8,7 +8,7 @@ use Pimcore\Controller\FrontendController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class QrCodeController extends FrontendController
+final class QrCodeController extends FrontendController
 {
     public function code(Request $request): Response
     {

@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace GalDigitalGmbh\PimcoreQrcodeBundle\Model;
 
@@ -12,7 +12,7 @@ use Pimcore\Model\Exception\NotFoundException;
  * @method void delete()
  * @method void save()
  */
-class QrCode extends AbstractModel
+final class QrCode extends AbstractModel
 {
     /**
      * @var string
@@ -39,10 +39,12 @@ class QrCode extends AbstractModel
      */
     public int $creationDate = 0;
 
-    public static function getByName(string $name): ?static
+
+
+    public static function getByName(string $name): ?self
     {
         try {
-            $code = new static();
+            $code = new self();
             $code->getDao()->getByName($name);
 
             return $code;
@@ -54,7 +56,7 @@ class QrCode extends AbstractModel
     /**
      * @return $this
      */
-    public function setDescription(string $description): static
+    public function setDescription(string $description): self
     {
         $this->description = $description;
 
@@ -69,7 +71,7 @@ class QrCode extends AbstractModel
     /**
      * @return $this
      */
-    public function setName(string $name): static
+    public function setName(string $name): self
     {
         $this->name = $name;
 
@@ -84,7 +86,7 @@ class QrCode extends AbstractModel
     /**
      * @return $this
      */
-    public function setUrl(string $url): static
+    public function setUrl(string $url): self
     {
         $this->url = $url;
 
@@ -99,7 +101,7 @@ class QrCode extends AbstractModel
     /**
      * @return $this
      */
-    public function setModificationDate(int $modificationDate): static
+    public function setModificationDate(int $modificationDate): self
     {
         $this->modificationDate = $modificationDate;
 
@@ -114,7 +116,7 @@ class QrCode extends AbstractModel
     /**
      * @return $this
      */
-    public function setCreationDate(int $creationDate): static
+    public function setCreationDate(int $creationDate): self
     {
         $this->creationDate = $creationDate;
 

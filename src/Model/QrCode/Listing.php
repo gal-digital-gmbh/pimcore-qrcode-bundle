@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode;
 
@@ -11,7 +11,7 @@ use Pimcore\Model\Listing\Traits\OrderListingTrait;
 /**
  * @method Dao getDao()
  */
-class Listing extends AbstractModel
+final class Listing extends AbstractModel
 {
     use FilterListingTrait;
     use OrderListingTrait;
