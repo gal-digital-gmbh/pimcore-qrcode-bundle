@@ -2,6 +2,7 @@
 
 namespace GalDigitalGmbh\PimcoreQrcodeBundle\DependencyInjection;
 
+use Pimcore\Bundle\CoreBundle\DependencyInjection\ConfigurationHelper;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
@@ -27,6 +28,7 @@ final class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
             ->end();
+        ConfigurationHelper::addConfigLocationWithWriteTargetNodes($rootNode, ['qrcode' => '/var/config/qrcode']);
 
         return $treeBuilder;
     }

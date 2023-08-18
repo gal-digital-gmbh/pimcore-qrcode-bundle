@@ -25,23 +25,16 @@ class Dao extends PimcoreLocationAwareConfigDao
         'modificationDate',
     ];
 
-    /** @var string */
-    private const LEGACY_FILE = 'qrcode.php';
-
-    /** @var string */
-    public const CONFIG_PATH = PIMCORE_CONFIGURATION_DIRECTORY . '/qrcode';
-
     public function configure(): void
     {
         /** @var array<mixed>|null $config */
         $config = \Pimcore::getContainer()?->getParameter('pimcore_qrcode');
+        $storageConfig = $config['config_location']['qrcode'];
 
         parent::configure([
-            'containerConfig' => $config['codes'] ?? [],
+            'containerConfig' => $config['configurations'] ?? [],
             'settingsStoreScope' => 'pimcore_qrcode',
-            'storageDirectory' => self::CONFIG_PATH,
-            'legacyConfigFile' => self::LEGACY_FILE,
-            'writeTargetEnvVariableName' => 'PIMCORE_WRITE_TARGET_QRCODES',
+            'storageConfig' => $storageConfig,
         ]);
     }
 
