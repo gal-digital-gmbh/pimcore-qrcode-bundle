@@ -1,5 +1,9 @@
 # Changelog
 
+## [2.0.1]
+
+Fix: Ignores the constant PIMCORE_CONFIGURATION_DIRECTORY
+
 ## [2.0.0]
 
 Pimcore 11 Support
