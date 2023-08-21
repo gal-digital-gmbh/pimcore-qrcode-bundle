@@ -1,13 +1,15 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace GalDigitalGmbh\PimcoreQrcodeBundle\DependencyInjection;
 
+use Pimcore\Bundle\CoreBundle\DependencyInjection\ConfigurationHelper;
+use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
-class Configuration implements ConfigurationInterface
+final class Configuration implements ConfigurationInterface
 {
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('pimcore_qrcode');
         $rootNode = $treeBuilder->getRootNode();
@@ -27,6 +29,9 @@ class Configuration implements ConfigurationInterface
                     ->end()
                 ->end()
             ->end();
+
+        /** @var ArrayNodeDefinition $rootNode */
+        ConfigurationHelper::addConfigLocationWithWriteTargetNodes($rootNode, ['qrcode' => '/var/config/qrcode']);
 
         return $treeBuilder;
     }

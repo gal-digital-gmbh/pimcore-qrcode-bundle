@@ -4,7 +4,7 @@ Adds a backend configuration view for QR-Codes.
 
 ## Requirements
 
-Pimcore >= 10.5
+Pimcore >= 11.0
 
 ## Installation
 
@@ -14,8 +14,15 @@ Require the bundle
 composer require gal-digital-gmbh/pimcore-qrcode-bundle
 ```
 
-Enable the bundle
+Add the bundle to the `config/bundles.php` file to enable it. The following lines should be added:
 
-```bash
-php bin/console pimcore:bundle:enable PimcoreQrcodeBundle
+```php
+use GalDigitalGmbh\PimcoreQrcodeBundle\PimcoreQrcodeBundle;
+// ...
+
+return [
+    // ...
+    PimcoreQrcodeBundle::class => ['all' => true],
+    // ...
+];
 ```

@@ -1,24 +1,20 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace GalDigitalGmbh\PimcoreQrcodeBundle\DependencyInjection;
 
-use GalDigitalGmbh\PimcoreQrcodeBundle\Model\QrCode\Dao;
+use Pimcore\Bundle\CoreBundle\DependencyInjection\ConfigurationHelper;
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
-use Symfony\Component\Finder\Finder;
 use Symfony\Component\HttpKernel\DependencyInjection\ConfigurableExtension;
 
-class PimcoreQrcodeExtension extends ConfigurableExtension implements PrependExtensionInterface
+final class PimcoreQrcodeExtension extends ConfigurableExtension implements PrependExtensionInterface
 {
     /**
      * @param array<mixed> $mergedConfig
-     * @param ContainerBuilder $container
-     *
-     * @return void
      */
-    public function loadInternal(array $mergedConfig, ContainerBuilder $container)
+    public function loadInternal(array $mergedConfig, ContainerBuilder $container): void
     {
         $container->setParameter('pimcore_qrcode', $mergedConfig);
 
@@ -26,9 +22,6 @@ class PimcoreQrcodeExtension extends ConfigurableExtension implements PrependExt
         $loader->load('services.yaml');
     }
 
-    /**
-     * @param ContainerBuilder $container
-     */
     public function prepend(ContainerBuilder $container): void
     {
         if ($container->hasExtension('doctrine_migrations')) {
@@ -40,17 +33,15 @@ class PimcoreQrcodeExtension extends ConfigurableExtension implements PrependExt
             $loader->load('doctrine_migrations.yaml');
         }
 
-        $configDir = Dao::CONFIG_PATH;
-        if (is_dir($configDir)) {
-            $configLoader = new YamlFileLoader(
-                $container,
-                new FileLocator($configDir)
-            );
-            $finder = new Finder();
-            $finder->files()->in($configDir)->name(['*.yml', '*.yaml']);
-            foreach ($finder as $config) {
-                $configLoader->load($config);
-            }
+        $containerConfig = ConfigurationHelper::getConfigNodeFromSymfonyTree($container, 'pimcore_qrcode');
+        $configDir = $containerConfig['config_location']['qrcode']['write_target']['options']['directory'];
+        $configLoader = new YamlFileLoader(
+            $container,
+            new FileLocator($configDir)
+        );
+        $configs = ConfigurationHelper::getSymfonyConfigFiles($configDir);
+        foreach ($configs as $config) {
+            $configLoader->load($config);
         }
     }
 }

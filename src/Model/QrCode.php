@@ -1,4 +1,4 @@
-<?php
+<?php declare(strict_types = 1);
 
 namespace GalDigitalGmbh\PimcoreQrcodeBundle\Model;
 
@@ -12,32 +12,17 @@ use Pimcore\Model\Exception\NotFoundException;
  * @method void delete()
  * @method void save()
  */
-class QrCode extends AbstractModel
+final class QrCode extends AbstractModel
 {
-    /**
-     * @var string
-     */
-    public $name = '';
+    public string $name = '';
 
-    /**
-     * @var string
-     */
-    public $description = '';
+    public string $description = '';
 
-    /**
-     * @var string
-     */
-    public $url = '';
+    public string $url = '';
 
-    /**
-     * @var int
-     */
-    public $modificationDate = 0;
+    public int $modificationDate = 0;
 
-    /**
-     * @var int
-     */
-    public $creationDate = 0;
+    public int $creationDate = 0;
 
     public static function getByName(string $name): ?self
     {
@@ -46,11 +31,14 @@ class QrCode extends AbstractModel
             $code->getDao()->getByName($name);
 
             return $code;
-        } catch (NotFoundException $e) {
+        } catch (NotFoundException) {
             return null;
         }
     }
 
+    /**
+     * @return $this
+     */
     public function setDescription(string $description): self
     {
         $this->description = $description;
@@ -63,6 +51,9 @@ class QrCode extends AbstractModel
         return $this->description;
     }
 
+    /**
+     * @return $this
+     */
     public function setName(string $name): self
     {
         $this->name = $name;
@@ -75,6 +66,9 @@ class QrCode extends AbstractModel
         return $this->name;
     }
 
+    /**
+     * @return $this
+     */
     public function setUrl(string $url): self
     {
         $this->url = $url;
@@ -87,6 +81,9 @@ class QrCode extends AbstractModel
         return $this->url;
     }
 
+    /**
+     * @return $this
+     */
     public function setModificationDate(int $modificationDate): self
     {
         $this->modificationDate = $modificationDate;
@@ -99,6 +96,9 @@ class QrCode extends AbstractModel
         return $this->modificationDate;
     }
 
+    /**
+     * @return $this
+     */
     public function setCreationDate(int $creationDate): self
     {
         $this->creationDate = $creationDate;
