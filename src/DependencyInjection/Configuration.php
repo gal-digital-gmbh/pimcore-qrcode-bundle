@@ -31,7 +31,10 @@ final class Configuration implements ConfigurationInterface
             ->end();
 
         /** @var ArrayNodeDefinition $rootNode */
-        ConfigurationHelper::addConfigLocationWithWriteTargetNodes($rootNode, ['qrcode' => '/var/config/qrcode']);
+        ConfigurationHelper::addConfigLocationWithWriteTargetNodes(
+            $rootNode,
+            ['qrcode' => PIMCORE_CONFIGURATION_DIRECTORY . '/qrcode']
+        );
 
         return $treeBuilder;
     }

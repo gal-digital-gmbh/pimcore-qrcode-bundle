@@ -21,7 +21,7 @@
     "php": "^8.1",
     "endroid/qr-code": "^4.8",
     "pimcore/admin-ui-classic-bundle": "^1.0",
-    "pimcore/pimcore": "^11.0"
+    "pimcore/pimcore": "^11.0.7"
   },
   "require-dev": {
     "friendsofphp/php-cs-fixer": "^3.23",
